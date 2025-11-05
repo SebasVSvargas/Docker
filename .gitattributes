@@ -1,0 +1,47 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Documentos
+*.md text
+*.txt text
+
+# Scripts
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Docker
+Dockerfile text eol=lf
+docker-compose*.yml text eol=lf
+.dockerignore text eol=lf
+
+# Node.js
+*.js text eol=lf
+*.json text eol=lf
+*.ts text eol=lf
+package.json text eol=lf
+package-lock.json text eol=lf
+
+# .NET
+*.cs text diff=csharp
+*.csproj text
+*.sln text eol=crlf
+
+# Web
+*.html text diff=html
+*.css text
+*.scss text
+
+# Nginx
+*.conf text eol=lf
+
+# Binarios
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.tar.gz binary
+*.dll binary
+*.exe binary

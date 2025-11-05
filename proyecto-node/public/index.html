@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Docker y Node</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 2rem; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; max-width: 720px; }
+  </style>
+</head>
+<body>
+  <h1>Proyecto de Docker con Node.js</h1>
+  <div class="card">
+    <p>¡Bienvenido a esta aplicación de Node.js!</p>
+    <p>Cada vez que refresques la página, se cargará aquí una cita diferente</p>
+    <hr />
+    <p>- Tu cita del día: <i><span id="cita">Cargando cita...</span></i></p>
+  </div>
+  <script>
+    setTimeout(() => {
+        fetch('/api/random').then(r => r.json()).then(data => {
+        document.getElementById("cita").innerHTML = data.quote;
+        }).catch(()=>{});
+    }, 1000);
+  </script>
+</body>
+</html>

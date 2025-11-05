@@ -1,0 +1,58 @@
+# Docker
+*.log
+docker-compose.override.yml
+.env.local
+.env.*.local
+
+# Volumenes y datos persistentes
+**/data/
+**/volumes/
+**/logs/
+
+# Node.js (proyecto-node)
+proyecto-node/node_modules/
+proyecto-node/npm-debug.log*
+proyecto-node/yarn-debug.log*
+proyecto-node/yarn-error.log*
+proyecto-node/.npm
+proyecto-node/dist/
+proyecto-node/build/
+
+# .NET (proyecto-dotnet)
+proyecto-dotnet/bin/
+proyecto-dotnet/obj/
+proyecto-dotnet/*.user
+proyecto-dotnet/*.suo
+proyecto-dotnet/.vs/
+proyecto-dotnet/packages/
+
+# Nginx (Sitio-nginx)
+Sitio-nginx/*.log
+Sitio-nginx/cache/
+
+# SitioWeb general
+SitioWeb/node_modules/
+SitioWeb/.cache/
+SitioWeb/dist/
+
+# Sistema Operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Certificados y claves (IMPORTANTE)
+*.pem
+*.key
+*.crt
+*.p12
+ssl/
+certs/
+
+# Variables de entorno sensibles
+.env
