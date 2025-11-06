@@ -7,7 +7,7 @@ require('dotenv').config();
 const apiRoutes = require('./routes/api');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;//indica que el servidor escucha en el puerto 3001 - el contenedor expone este puerto
 const GREETING = process.env.GREETING || '¡Hola desde node en Docker!';
 
 app.use(morgan('dev'));
