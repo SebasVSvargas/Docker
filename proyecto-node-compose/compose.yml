@@ -1,0 +1,26 @@
+services:     #Definimos los servicios que compondrán nuestra aplicación
+  app:        #Definimos el servicio llamado "app"
+    build: .  #Construimos la imagen a partir del Dockerfile en el directorio actual
+    ports:
+      - "3001:3000" #Mapeamos el puerto 3001 del host al puerto 3000 del contenedor
+    volumes:
+      - ./public:/app/public  #Con esto ligamos la carpeta public del contenedor con la carpeta public del host
+    command: npm run dev      #Comando para iniciar la aplicación en modo desarrollo, sobre escribiendo el CMD del Dockerfile
+    develop:                    
+      watch:
+        - action: sync
+          path: ./src  #apunta a la carpeta con el codigo js que tiene las frases
+          target: /app/src  #apunta a la carpeta dentro del contenedor con la que se va a sincronizar
+
+  database: #usaremos una imagen oficial de mariaDB
+    image: mariadb:latest
+    environment: #para asignar las variables de entorno necesarias para la configuracion inicial de la base de datos
+      MYSQL_ROOT_PASSWORD: example  #contraseña del usuario root de la base de datos
+      MYSQL_DATABASE: quotesdb               #nombre de la base de datos a crear
+    ports:
+      - "3307:3306" #Mapeamos el puerto 3307 del host al puerto 3306 del contenedor (puerto por defecto de mariaDB)
+    volumes:
+      - db_data:/var/lib/mysql  #volumen para persistir los datos de la base de datos
+
+volumes:
+  db_data:  #definimos el volumen llamado db_data
